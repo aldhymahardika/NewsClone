@@ -131,6 +131,7 @@
   </aside>
 
   <!-- Main content -->
+  <div class="content-wrapper">
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -180,6 +181,7 @@
             <!-- /.card -->
           </div>
         </div>
+      </div>
       </div>
     </section>
 </div>

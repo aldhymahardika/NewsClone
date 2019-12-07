@@ -131,6 +131,7 @@
   </aside>
 
         <!-- /.row -->
+        <div class="content-wrapper">
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -165,8 +166,9 @@
                       <td>{{$akun->name}}</td>
                       <td>{{$akun->role}}</td>
                       <td>
-                        <a href="" class="btn btn-block btn-danger" >Delete</a>
-                        <a href="" class="btn btn-block btn-warning">Edit</a>
+                        <a href=""><button type="button" class="btn btn-block btn-warning">Edit</button></a>
+                        <br>
+                        <a href=""><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
                       </td>
                     </tr>
                     @endforeach
@@ -178,6 +180,7 @@
             <!-- /.card -->
           </div>
         </div>
+      </div>
         <!-- /.row -->
     </div>
 
