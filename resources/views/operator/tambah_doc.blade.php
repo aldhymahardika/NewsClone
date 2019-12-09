@@ -106,19 +106,19 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="/admin.data_user" class="nav-link">
+            <a href="/opeator.data_doc" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Data Account
+                Data Document
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="/admin.tambah" class="nav-link">
+            <a href="/operator.tambah_doc" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Add Account
+                Add Document
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
@@ -144,7 +144,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="/admin.store" method="post">
+              <form role="form" action="/store" method="post">
 
                 {{ csrf_field() }}
 

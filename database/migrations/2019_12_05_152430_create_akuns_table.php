@@ -16,7 +16,7 @@ class CreateAkunsTable extends Migration
         Schema::create('akun', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->nullable();
-            $table->string('nama');
+            $table->string('name');
             $table->string('role');
             $table->string('email')->unique();
             $table->timestamps();

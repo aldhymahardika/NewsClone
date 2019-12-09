@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Akun;
 use App\User;
-
+use App\Operator;
 
 class AdminController extends Controller
 {
@@ -27,20 +27,7 @@ class AdminController extends Controller
     }
 
     public function store(Request $request){
-        // $user = User::create([
-        //     'name' => $request->name,
-        //     'role' => $request->role,
-        //     'email' => $request->email,
-        //     'password' => $request->password
-        // ]);
-
-        // $akun = Akun::create([
-        //     'nama' => $user->name,
-        //     'role' => $user->role,
-        //     'email' => $user->email,
-        //     'user_id' => $user->id
-        // ]);
-
+        $operator = new \App\Operator;
         $user = new \App\User;
         $user->name = $request->name;
         $user->role = $request->role;
@@ -50,7 +37,12 @@ class AdminController extends Controller
         $user->save();
 
         $request->request->add(['user_id' => $user->id]);
+        if($request->user()->role == 'user'){
+            $request->request->add(['operator_id' => $user->id]);
+            $request->request->add(['name' => $user->name]);
+        }
         $akun = \App\Akun::create($request->all());
+        $operator = \App\Operator::create($request->all());
         return redirect('admin.data_user');
     }
 }

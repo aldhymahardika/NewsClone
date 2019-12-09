@@ -106,19 +106,19 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="/admin.data_user" class="nav-link">
+            <a href="/operator.data_doc" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Data Account
+                Data Document
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="/admin.tambah" class="nav-link">
+            <a href="/operator.tambah_doc" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Add Account
+                Add Document
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
@@ -130,57 +130,69 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Main content -->
-  <div class="content-wrapper">
-    <section class="content">
-      <div class="container-fluid">
+        <!-- /.row -->
+        <div class="content-wrapper">
         <div class="row">
-          <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
+          <div class="col-12">
+            <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Tambah Akun</h3>
+                <h3 class="card-title">Responsive Hover Table</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form" action="/admin.store" method="post">
-
-                {{ csrf_field() }}
-
-                <div class="card-body">
-                  <div class="form-group">
-                    <label >Nama</label>
-                    <input type="text" class="form-control" placeholder="Masukkan Nama User" name="name">
-                  </div>
-                  <div class="form-group">
-                    <label >Role</label>
-                    <br>
-                    <select name="role" class="form-control">
-                      <option value="operator">Operator</option>
-                      <option value="verifikator">Verifikator</option>
-                      <option value="user">User</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label >Email</label>
-                    <input type="email" class="form-control" placeholder="Masukkan Alamat Email" name="email">
-                  </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-center">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama</th>
+                      <th>Nama Dokumen</th>
+                      <th>KTP</th>
+                      <th>Ijazah</th>
+                      <th>Akte Kelahiran</th>
+                      <th>Keterangan</th>
+                      <th>Instansi</th>
+                      <th>Opsi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($operator as $op)
+                    <tr>
+                      <td>{{$op->id}}</td>
+                      <td>{{$op->name}}</td>
+                      <td>{{$op->name_doc}}</td>
+                      <td>{{$op->ktp}}</td>
+                      <td>{{$op->ijazah}}</td>
+                      <td>{{$op->akte}}</td>
+                      <td>{{$op->keterangan}}</td>
+                      <td>{{$op->instasi}}</td>
+                      <td>
+                        <a href=""><button type="button" class="btn btn-block btn-warning">Edit</button></a>
+                        <br>
+                        <a href=""><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
         </div>
       </div>
-      </div>
-    </section>
-</div>
+        <!-- /.row -->
+    </div>
 
 <!-- jQuery -->
 <script src="{{asset('lte/plugins/jquery/jquery.min.js')}}"></script>
