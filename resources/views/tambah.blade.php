@@ -166,10 +166,6 @@
                     <label >Email</label>
                     <input type="email" class="form-control" placeholder="Masukkan Alamat Email" name="email">
                   </div>
-                  <div class="form-group">
-                    <label >Password</label>
-                    <input type="password" class="form-control" placeholder="Masukkan Password" name="password">
-                  </div>
                 </div>
                 <!-- /.card-body -->
 
