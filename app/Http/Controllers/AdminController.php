@@ -19,11 +19,11 @@ class AdminController extends Controller
 
     public function data_user(){
         $akun = Akun::all();
-    	return view('data_user',['akun' => $akun]);
+    	return view('admin.data_user',['akun' => $akun]);
     }
 
     public function tambah_akun(){
-    	return view('/tambah');
+    	return view('admin.tambah');
     }
 
     public function store(Request $request){
@@ -51,6 +51,6 @@ class AdminController extends Controller
 
         $request->request->add(['user_id' => $user->id]);
         $akun = \App\Akun::create($request->all());
-        return redirect('/data_user');
+        return redirect('admin.data_user');
     }
 }

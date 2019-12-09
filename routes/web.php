@@ -20,9 +20,9 @@ Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function(){
-	Route::get('/data_user', 'AdminController@data_user');
-	Route::get('/tambah', 'AdminController@tambah_akun');
-	Route::post('/store', 'AdminController@store');
+	Route::get('/admin.data_user', 'AdminController@data_user');
+	Route::get('/admin.tambah', 'AdminController@tambah_akun');
+	Route::post('/admin.store', 'AdminController@store');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin,operator,verifikator,user']], function(){

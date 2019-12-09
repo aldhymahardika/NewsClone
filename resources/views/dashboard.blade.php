@@ -105,24 +105,26 @@
               </p>
             </a>
           </li>
+          @if(auth()->user()->role == 'admin')
           <li class="nav-item has-treeview">
-            <a href="/data_user" class="nav-link">
+            <a href="/admin.data_user" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Tables
+                Daftar Account
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="/tambah" class="nav-link">
+            <a href="/admin.tambah" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Tambah Akun
+                Add Account
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
           </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
