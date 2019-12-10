@@ -125,6 +125,26 @@
             </a>
           </li>
           @endif
+          @if(auth()->user()->role == 'operator')
+          <li class="nav-item has-treeview">
+            <a href="/operator.data_doc" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Daftar User
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="/operator.tambah_doc" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Tambah Data
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

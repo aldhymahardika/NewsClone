@@ -37,12 +37,14 @@ class AdminController extends Controller
         $user->save();
 
         $request->request->add(['user_id' => $user->id]);
-        if($request->user()->role == 'user'){
-            $request->request->add(['operator_id' => $user->id]);
-            $request->request->add(['name' => $user->name]);
-        }
         $akun = \App\Akun::create($request->all());
-        $operator = \App\Operator::create($request->all());
+        
+        // if($request->user()->role == 'user'){
+        //     $request->request->add(['operator_id' => $user->id]);
+        //     $request->request->add(['name' => $user->name]);
+        //     $operator = \App\Operator::create($request->all());
+        // }else{
+        // }
         return redirect('admin.data_user');
     }
 }

@@ -16,7 +16,6 @@ class CreateOperatorsTable extends Migration
         Schema::create('operator', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('operator_id');
             $table->string('name_doc');
             $table->string('ktp')->nullable();
             $table->string('ijazah')->nullable();

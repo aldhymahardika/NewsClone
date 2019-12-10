@@ -144,7 +144,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="/store" method="post">
+              <form role="form" action="/operator.store_doc" method="post">
 
                 {{ csrf_field() }}
 
@@ -154,17 +154,32 @@
                     <input type="text" class="form-control" placeholder="Masukkan Nama User" name="name">
                   </div>
                   <div class="form-group">
-                    <label >Role</label>
-                    <br>
-                    <select name="role" class="form-control">
-                      <option value="operator">Operator</option>
-                      <option value="verifikator">Verifikator</option>
-                      <option value="user">User</option>
-                    </select>
+                    <label >Nama Berkas</label>
+                    <input type="text" class="form-control" placeholder="Masukkan Nama Berkas" name="name_doc">
                   </div>
                   <div class="form-group">
-                    <label >Email</label>
-                    <input type="email" class="form-control" placeholder="Masukkan Alamat Email" name="email">
+                    <label >KTP :</label>
+                    <input type="file" class="" placeholder="Masukkan File" name="ktp">
+                  </div>
+                  <div class="form-group">
+                    <label >Ijazah :</label>
+                    <input type="file" class="" placeholder="Masukkan File" name="ijazah">
+                  </div>
+                  <div class="form-group">
+                    <label >Akte Kelahiran :</label>
+                    <input type="file" class="" placeholder="Masukkan File" name="akte">
+                  </div>
+                  <div class="form-group">
+                    <label >Keterangan</label>
+                    <input type="textarea" class="form-control" placeholder="Masukkan Keterangan" name="keterangan">
+                  </div>
+                  <div class="form-group">
+                    <label >Instansi</label>
+                    <br>
+                    <select name="instansi" class="form-control">
+                      <option value="BKN">BKN</option>
+                      <option value="Non-BKN">Non-BKN</option>
+                    </select>
                   </div>
                 </div>
                 <!-- /.card-body -->
