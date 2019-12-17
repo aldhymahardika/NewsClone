@@ -106,7 +106,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="/opeator.data_doc" class="nav-link">
+            <a href="/operator.data_doc" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Data Document

@@ -17,9 +17,9 @@ class CreateOperatorsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('name_doc');
-            $table->string('ktp')->nullable();
-            $table->string('ijazah')->nullable();
-            $table->string('akte')->nullable();
+            $table->string('ktp');
+            $table->string('ijazah');
+            $table->string('akte');
             $table->text('keterangan');
             $table->string('instansi');
             $table->timestamps();

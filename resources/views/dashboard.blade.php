@@ -130,7 +130,7 @@
             <a href="/operator.data_doc" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Daftar User
+                Data Document
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
@@ -139,7 +139,7 @@
             <a href="/operator.tambah_doc" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Tambah Data
+                Add Document
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title></title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 3 | Dashboard</title>
@@ -29,9 +29,9 @@
   <link href="{{asset('lte/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700')}}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-	<div class="wrapper">
-		
-	
+  <div class="wrapper">
+    
+  
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -123,6 +123,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="/operator.edit_doc" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Edit Document
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -130,69 +139,72 @@
     <!-- /.sidebar -->
   </aside>
 
-        <!-- /.row -->
-        <div class="content-wrapper">
+  <!-- Main content -->
+  <div class="content-wrapper">
+    <section class="content">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
-            <div class="card">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
-
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
-                </div>
+                <h3 class="card-title">Tambah Akun</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-center">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama</th>
-                      <th>Nama Dokumen</th>
-                      <th>KTP</th>
-                      <th>Ijazah</th>
-                      <th>Akte Kelahiran</th>
-                      <th>Keterangan</th>
-                      <th>Instansi</th>
-                      <th>Opsi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($operator as $op)
-                    <tr>
-                      <td>{{$op->id}}</td>
-                      <td>{{$op->name}}</td>
-                      <td>{{$op->name_doc}}</td>
-                      <td>{{$op->ktp}}</td>
-                      <td>{{$op->ijazah}}</td>
-                      <td>{{$op->akte}}</td>
-                      <td>{{$op->keterangan}}</td>
-                      <td>{{$op->instansi}}</td>
-                      <td>
-                        <a href="/operator.edit_doc/{{ $op->id }}"><button type="button" class="btn btn-block btn-warning">Edit</button></a>
-                        <br>
-                        <a href=""><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
-                      </td>
-                    </tr>
-                    @endforeach
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+              <!-- form start -->
+              <form role="form" action="/operator.update_doc/{{ $operator->id }}" method="post">
+
+                {{ csrf_field() }}
+
+                <div class="card-body">
+                  <div class="form-group">
+                    <label >Nama</label>
+                    <input type="text" class="form-control" placeholder="Masukkan Nama User" name="name" value="{{ $operator->name }}">
+                  </div>
+                  <div class="form-group">
+                    <label >Nama Berkas</label>
+                    <input type="text" class="form-control" placeholder="Masukkan Nama Berkas" name="name_doc" value="{{ $operator->name_doc }}">
+                  </div>
+                  <div class="form-group">
+                    <label >KTP :</label>
+                    <input type="file" class="" placeholder="Masukkan File" name="ktp">
+                  </div>
+                  <div class="form-group">
+                    <label >Ijazah :</label>
+                    <input type="file" class="" placeholder="Masukkan File" name="ijazah">
+                  </div>
+                  <div class="form-group">
+                    <label >Akte Kelahiran :</label>
+                    <input type="file" class="" placeholder="Masukkan File" name="akte">
+                  </div>
+                  <div class="form-group">
+                    <label >Keterangan</label>
+                    <input type="textarea" class="form-control" placeholder="Masukkan Keterangan" name="keterangan" value="{{ $operator->keterangan }}">
+                  </div>
+                  <div class="form-group">
+                    <label >Instansi</label>
+                    <br>
+                    <select name="instansi" class="form-control">
+                      <option @if($operator->instansi == 'BKN') selected value="{{ $operator->instansi }}"@endif>BKN</option>
+                      <option @if($operator->instansi == 'Non-BKN') selected value="{{ $operator->instansi }}"@endif>Non-BKN</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
             <!-- /.card -->
           </div>
         </div>
       </div>
-        <!-- /.row -->
-    </div>
+      </div>
+    </section>
+</div>
 
 <!-- jQuery -->
 <script src="{{asset('lte/plugins/jquery/jquery.min.js')}}"></script>

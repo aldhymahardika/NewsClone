@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth', 'CheckRole:operator']], function(){
 	Route::get('/operator.data_doc', 'OperatorController@data_doc');
 	Route::get('/operator.tambah_doc', 'OperatorController@tambah_doc');
 	Route::post('/operator.store_doc', 'OperatorController@store_doc');
+	Route::get('/operator.edit_doc/{id}', 'OperatorController@edit_doc');
+	Route::post('/operator.update_doc/{id}', 'OperatorController@update_doc');
 });
 
 Route::get('/admin', 'AdminController@index');
