@@ -155,22 +155,26 @@
                     <tr>
                       <th>ID</th>
                       <th>Nama</th>
-                      <th>Status</th>
+                      <th>Role</th>
                       <th>Option</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @php
+                    $no = 1;
+                    @endphp
                     @foreach($akun as $akun)
                     <tr>
-                      <td>{{$akun->id}}</td>
+                      <td>{{$no}}</td>
                       <td>{{$akun->name}}</td>
                       <td>{{$akun->role}}</td>
                       <td>
-                        <a href=""><button type="button" class="btn btn-block btn-warning">Edit</button></a>
-                        <br>
-                        <a href=""><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
+                        <a href="/admin.hapus{{$akun->id}}"><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
                       </td>
                     </tr>
+                    @php
+                    $no++;
+                    @endphp
                     @endforeach
                   </tbody>
                 </table>

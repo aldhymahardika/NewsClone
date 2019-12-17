@@ -123,15 +123,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="/operator.edit_doc" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Edit Document
-                <!-- <i class="fas fa-angle-left right"></i> -->
-              </p>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

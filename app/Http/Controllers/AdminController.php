@@ -36,15 +36,21 @@ class AdminController extends Controller
         $user->remember_token = str_random(60);
         $user->save();
 
+        if($request->user()->role == 'user'){
+            $request->request->add(['operator_id' => $user->id]);
+            $request->request->add(['name' => $user->name]);
+            $operator = \App\Operator::create($request->all());
+        }
         $request->request->add(['user_id' => $user->id]);
         $akun = \App\Akun::create($request->all());
         
-        // if($request->user()->role == 'user'){
-        //     $request->request->add(['operator_id' => $user->id]);
-        //     $request->request->add(['name' => $user->name]);
-        //     $operator = \App\Operator::create($request->all());
-        // }else{
-        // }
         return redirect('admin.data_user');
+    }
+
+    public function hapus($id)
+    {
+        $akun = Akun::find($id);
+        $akun->delete();
+        return redirect('/admin.data_user');
     }
 }

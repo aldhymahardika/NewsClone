@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function(){
 	Route::get('/admin.data_user', 'AdminController@data_user');
 	Route::get('/admin.tambah', 'AdminController@tambah_akun');
 	Route::post('/admin.store', 'AdminController@store');
+	Route::get('/admin.hapus', 'OperatorController@hapus');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin,operator,verifikator,user']], function(){
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:operator']], function(){
 	Route::post('/operator.store_doc', 'OperatorController@store_doc');
 	Route::get('/operator.edit_doc/{id}', 'OperatorController@edit_doc');
 	Route::post('/operator.update_doc/{id}', 'OperatorController@update_doc');
+	Route::get('/operator.hapus_doc/{id}', 'OperatorController@hapus_doc');
 });
 
 Route::get('/admin', 'AdminController@index');

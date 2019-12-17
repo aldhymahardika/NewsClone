@@ -165,9 +165,12 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @php
+                    $no = 1;
+                    @endphp
                     @foreach($operator as $op)
                     <tr>
-                      <td>{{$op->id}}</td>
+                      <td>{{$no}}</td>
                       <td>{{$op->name}}</td>
                       <td>{{$op->name_doc}}</td>
                       <td>{{$op->ktp}}</td>
@@ -178,9 +181,12 @@
                       <td>
                         <a href="/operator.edit_doc/{{ $op->id }}"><button type="button" class="btn btn-block btn-warning">Edit</button></a>
                         <br>
-                        <a href=""><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
+                        <a href="/operator.hapus_doc/{{ $op->id }}"><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
                       </td>
                     </tr>
+                    @php
+                    $no++;
+                    @endphp
                     @endforeach
                   </tbody>
                 </table>

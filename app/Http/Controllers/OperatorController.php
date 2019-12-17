@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Akun;
-use \App\Operator;
+use App\Operator;
 
 class OperatorController extends Controller
 {
@@ -69,6 +69,13 @@ class OperatorController extends Controller
         $operator->keterangan = $request->keterangan;
         $operator->instansi = $request->instansi;
         $operator->save();
+        return redirect('/operator.data_doc');
+    }
+
+    public function hapus_doc($id)
+    {
+        $operator = Operator::find($id);
+        $operator->delete();
         return redirect('/operator.data_doc');
     }
 

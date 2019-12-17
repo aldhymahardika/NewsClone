@@ -15,13 +15,14 @@ class CreateOperatorsTable extends Migration
     {
         Schema::create('operator', function (Blueprint $table) {
             $table->increments('id');
+            $table->tinyInteger('operator_id');
             $table->string('name');
-            $table->string('name_doc');
-            $table->string('ktp');
-            $table->string('ijazah');
-            $table->string('akte');
-            $table->text('keterangan');
-            $table->string('instansi');
+            $table->string('name_doc')->nullable();
+            $table->string('ktp')->nullable();
+            $table->string('ijazah')->nullable();
+            $table->string('akte')->nullable();
+            $table->text('keterangan')->nullable();
+            $table->string('instansi')->nullable();
             $table->timestamps();
         });
     }
