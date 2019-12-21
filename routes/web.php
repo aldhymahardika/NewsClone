@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function(){
 	Route::get('/admin.data_user', 'AdminController@data_user');
 	Route::get('/admin.tambah', 'AdminController@tambah_akun');
 	Route::post('/admin.store', 'AdminController@store');
-	Route::get('/admin.hapus', 'OperatorController@hapus');
+	Route::get('/admin.hapus/{id}', 'AdminController@hapus');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin,operator,verifikator,user']], function(){

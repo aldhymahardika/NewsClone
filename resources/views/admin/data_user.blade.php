@@ -153,7 +153,7 @@
                 <table class="table table-hover text-center">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>No</th>
                       <th>Nama</th>
                       <th>Role</th>
                       <th>Option</th>
@@ -163,13 +163,13 @@
                     @php
                     $no = 1;
                     @endphp
-                    @foreach($akun as $akun)
+                    @foreach($user as $us)
                     <tr>
                       <td>{{$no}}</td>
-                      <td>{{$akun->name}}</td>
-                      <td>{{$akun->role}}</td>
+                      <td>{{$us->name}}</td>
+                      <td>{{$us->role}}</td>
                       <td>
-                        <a href="/admin.hapus{{$akun->id}}"><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
+                        <a href="/admin.hapus/{{$us->id}}"><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
                       </td>
                     </tr>
                     @php

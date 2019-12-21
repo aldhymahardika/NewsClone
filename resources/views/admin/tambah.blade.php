@@ -153,7 +153,7 @@
                     <label >Nama</label>
                     <input type="text" class="form-control" placeholder="Masukkan Nama User" name="name">
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label >Role</label>
                     <br>
                     <select name="role" class="form-control">
@@ -161,7 +161,7 @@
                       <option value="verifikator">Verifikator</option>
                       <option value="user">User</option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label >Email</label>
                     <input type="email" class="form-control" placeholder="Masukkan Alamat Email" name="email">

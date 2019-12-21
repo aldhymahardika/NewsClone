@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Akun;
 use App\User;
 use App\Operator;
 
@@ -18,8 +17,8 @@ class AdminController extends Controller
     }
 
     public function data_user(){
-        $akun = Akun::all();
-    	return view('admin.data_user',['akun' => $akun]);
+        $user = User::all();
+    	return view('admin.data_user',['user' => $user]);
     }
 
     public function tambah_akun(){
@@ -27,30 +26,26 @@ class AdminController extends Controller
     }
 
     public function store(Request $request){
-        $operator = new \App\Operator;
         $user = new \App\User;
         $user->name = $request->name;
-        $user->role = $request->role;
+        $user->role = 'user';
         $user->email = $request->email;
         $user->password = bcrypt('rahasia');
         $user->remember_token = str_random(60);
         $user->save();
-
-        if($request->user()->role == 'user'){
-            $request->request->add(['operator_id' => $user->id]);
-            $request->request->add(['name' => $user->name]);
-            $operator = \App\Operator::create($request->all());
-        }
-        $request->request->add(['user_id' => $user->id]);
-        $akun = \App\Akun::create($request->all());
+        $request->request->add(['operator_id' => $user->id]);
+        $request->request->add(['name' => $user->name]);
+        $operator = \App\Operator::create($request->all());
         
         return redirect('admin.data_user');
     }
 
     public function hapus($id)
     {
-        $akun = Akun::find($id);
-        $akun->delete();
+        $user = \App\User::find($id);
+        $user->delete($user);
+         $operator = Operator::find($id);
+            $operator->delete();
         return redirect('/admin.data_user');
     }
 }

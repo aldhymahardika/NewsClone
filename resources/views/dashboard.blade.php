@@ -145,6 +145,17 @@
             </a>
           </li>
           @endif
+          @if(auth()->user()->role == 'verifikator')
+          <li class="nav-item has-treeview">
+            <a href="/verifikator.berkas" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Documents
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
